@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, ImageContainer, Image, TextContainer } from './styles';
+import { Container, ImageContainer, Image, TextContainer, DashedLine } from './styles';
 
 const ArtworkComment = props => {
 	return (
@@ -12,6 +12,7 @@ const ArtworkComment = props => {
 				<p>{props.text}</p>
 				<p>{props.minutesAgo} minutes ago</p>
 			</TextContainer>
+			{props.last || <DashedLine />}
 		</Container>
 	)
 }

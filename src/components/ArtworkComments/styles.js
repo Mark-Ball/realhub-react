@@ -3,11 +3,8 @@ import { COLOURS } from '../../constants';
 
 export const Container = styled.div`
 	position: relative;
-	height: 120px;
-	width: 350px;
+	height: 150px;
 	margin: 0 auto;
-	border: 1px solid ${COLOURS.LINE};
-	border-radius: 5px;
 `;
 
 export const ImageContainer = styled.div`
@@ -30,8 +27,8 @@ export const TextContainer = styled.div`
 	position: absolute;
 	left: 15%;
 	display: inline-block;
-	height: 100%;
 	width: 85%;
+	height: auto;
 
 	p {
 			margin: 10px;
@@ -44,4 +41,10 @@ export const TextContainer = styled.div`
 	p:nth-child(3) {
 			color: ${COLOURS.LIGHTGREY};
 	}
+`;
+
+export const DashedLine = styled.div`
+	width: 90%;
+	border-top: 1px dashed ${COLOURS.LINE};
+	margin: 5px auto;
 `;
