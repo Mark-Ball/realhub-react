@@ -22,7 +22,7 @@ const comments = [
 const App = () => {
   return (
     <>
-      <h1>Comments</h1>
+      <h1 style={{textAlign: 'center'}}>Comments</h1>
       <ArtworkComment
         name={'Frank Greeff'}
         text={'Also, the address is 79/104 New Order Road not 78'}

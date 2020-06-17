@@ -2,33 +2,36 @@ import styled from 'styled-components';
 import { COLOURS } from '../../constants';
 
 export const Container = styled.div`
-    height: 120px;
-    width: 350px;
-    margin: 0 auto;
+	position: relative;
+	height: 120px;
+	width: 350px;
+	margin: 0 auto;
+	border: 1px solid ${COLOURS.LINE};
+	border-radius: 5px;
 `;
 
 export const ImageContainer = styled.div`
-    display: inline-block;
-    height: 100%;
-    width: 50px;
-    border: 1px solid black;
+	display: inline-block;
+	height: 100%;
+	width: 15%;
 `;
 
 export const TextContainer = styled.div`
-    display: inline-block;
-    width: 250px;
-    border: 1px solid ${COLOURS.LINE};
-    border-radius: 5px;
+	position: absolute;
+	left: 15%;
+	display: inline-block;
+	height: 100%;
+	width: 85%;
 
-    p {
-        margin: 10px;
-    }
+	p {
+			margin: 10px;
+	}
 
-    p:nth-child(1) {
-        color: ${COLOURS.BLUE};
-    }
+	p:nth-child(1) {
+			color: ${COLOURS.BLUE};
+	}
 
-    p:nth-child(3) {
-        color: ${COLOURS.LIGHTGREY};
-    }
+	p:nth-child(3) {
+			color: ${COLOURS.LIGHTGREY};
+	}
 `;
