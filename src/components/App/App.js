@@ -1,5 +1,6 @@
 import React from 'react';
 import ArtworkComment from '../ArtworkComments/ArtworkComments';
+import portrait from '../../svgs/portrait.svg';
 
 const comments = [
   {
@@ -24,6 +25,7 @@ const App = () => {
     <>
       <h1 style={{textAlign: 'center'}}>Comments</h1>
       <ArtworkComment
+        image={portrait}
         name={'Frank Greeff'}
         text={'Also, the address is 79/104 New Order Road not 78'}
         minutesAgo={5}

@@ -1,10 +1,12 @@
 import React from 'react';
-import { Container, ImageContainer, TextContainer } from './styles';
+import { Container, ImageContainer, Image, TextContainer } from './styles';
 
 const ArtworkComment = props => {
 	return (
 		<Container>
-			<ImageContainer />
+			<ImageContainer>
+				<Image src={props.image} />
+			</ImageContainer>
 			<TextContainer>
 				<p>{props.name}</p>
 				<p>{props.text}</p>

@@ -16,6 +16,16 @@ export const ImageContainer = styled.div`
 	width: 15%;
 `;
 
+export const Image = styled.img`
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	height: 35px;
+	width: 35px;
+	border: 1px solid ${COLOURS.LINE};
+	border-radius: 50%;
+`;
+
 export const TextContainer = styled.div`
 	position: absolute;
 	left: 15%;
