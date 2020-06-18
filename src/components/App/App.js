@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ArtworkComment from '../ArtworkComments/ArtworkComments';
-import { CommentsContainer, Bell } from './styles';
+import Bell from '../Bell/Bell';
+import { CommentsContainer } from './styles';
 import portrait from '../../svgs/portrait.svg';
 
 const comments = [
@@ -33,6 +34,8 @@ const App = () => {
     .map(comment => comment.seen)
   );
 
+  const [showComments, setShowComments] = useState(false);
+
   const handleSeen = index => {
     return () => {
       setSeen(prevState => {
@@ -42,24 +45,34 @@ const App = () => {
     }
   }
 
+  const toggleComments = () => {
+    setShowComments(prevState => !prevState);
+  }
+
   return (
     <>
       <h1 style={{textAlign: 'center'}}>Comments</h1>
-      <Bell blue={seen.includes(false)} />
-      <CommentsContainer>
-        {comments.sort((a, b) => a.minutesAgo - b.minutesAgo).map((comment, i) => (
-          <ArtworkComment
-            key={comment.id}
-            last={i === comments.length - 1 ? true : false}
-            image={portrait}
-            name={comment.name}
-            text={comment.text}
-            minutesAgo={comment.minutesAgo}
-            seen={seen[i]}
-            handleSeen={handleSeen(i)}
-          />
-        ))}
-      </CommentsContainer>
+      <Bell
+        blue={seen.includes(false)}
+        numUnseenComments={seen.filter(val => val === false).length}
+        toggleComments={toggleComments}
+      />
+      {showComments &&
+        <CommentsContainer>
+          {comments.sort((a, b) => a.minutesAgo - b.minutesAgo).map((comment, i) => (
+            <ArtworkComment
+              key={comment.id}
+              last={i === comments.length - 1 ? true : false}
+              image={portrait}
+              name={comment.name}
+              text={comment.text}
+              minutesAgo={comment.minutesAgo}
+              seen={seen[i]}
+              handleSeen={handleSeen(i)}
+            />
+          ))}
+        </CommentsContainer>
+      }
     </>
   );
 }

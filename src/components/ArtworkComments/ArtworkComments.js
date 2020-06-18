@@ -9,7 +9,6 @@ import {
 } from './styles';
 
 const ArtworkComment = props => {
-	console.log(`ArtworkComment: ${props.seen}`);
 	return (
 		<Container>
 			<ImageContainer>
