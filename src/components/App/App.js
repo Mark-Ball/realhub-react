@@ -9,7 +9,7 @@ const comments = [
   {
     id: 1,
     name: 'Frank Greeff',
-    text: 'Also, the address is 79/104 New Order Road not 78 | and if i make this comments very very very long it goes over the page on no!',
+    text: 'Also, the address is 79/104 New Order Road not 78',
     minutesAgo: 5,
     seen: false
   },

@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { COLOURS } from '../../constants';
 
 export const Container = styled.div`
-	position: relative;
-	height: 150px;
+	display: flex;
 	margin: 0 auto;
 `;
 
 export const ImageContainer = styled.div`
+	position: relative;
 	display: inline-block;
 	height: 100%;
 	width: 15%;
@@ -24,8 +24,6 @@ export const Image = styled.img`
 `;
 
 export const TextContainer = styled.div`
-	position: absolute;
-	left: 15%;
 	display: inline-block;
 	width: 85%;
 	height: auto;
@@ -38,21 +36,32 @@ export const TextContainer = styled.div`
 		color: ${COLOURS.BLUE};
 	}
 
-	p:nth-child(3) {
-		display: inline;
-		color: ${COLOURS.LIGHTGREY};
-		margin-left: 10px;
-		margin-right: 0;
+	div:nth-child(3) {
+		display: flex;
+		margin: 10px;
+
+		p {
+			margin: 0;
+		}
+
+		p:nth-child(1) {
+			color: ${COLOURS.LIGHTGREY};
+			margin: 0;
+		}
+
+		p:nth-child(2) {
+			margin-left: .25em;
+		}
 	}
 `;
 
 export const DashedLine = styled.div`
 	width: 90%;
 	border-top: 1px dashed ${COLOURS.LINE};
-	margin: 5px auto;
+	margin: 0 auto;
 `;
 
-export const RedText = styled.span`
+export const RedText = styled.p`
 	color: red;
 	cursor: pointer;
 

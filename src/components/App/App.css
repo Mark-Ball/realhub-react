@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Corbel&display=swap');
 
-h1, h2, label, li, p, a, th, td, input, textarea, span {
+h1, h2, label, li, p, a, th, td, input, textarea, span, div {
     font-family: Corbel, sans-serif;
 }
