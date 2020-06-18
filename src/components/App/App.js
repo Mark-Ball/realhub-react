@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ArtworkComment from '../ArtworkComments/ArtworkComments';
-import { CommentsContainer } from './styles';
+import { CommentsContainer, Bell } from './styles';
 import portrait from '../../svgs/portrait.svg';
 
 const comments = [
@@ -45,20 +45,21 @@ const App = () => {
   return (
     <>
       <h1 style={{textAlign: 'center'}}>Comments</h1>
-        <CommentsContainer>
-          {comments.sort((a, b) => a.minutesAgo - b.minutesAgo).map((comment, i) => (
-            <ArtworkComment
-              key={comment.id}
-              last={i === comments.length - 1 ? true : false}
-              image={portrait}
-              name={comment.name}
-              text={comment.text}
-              minutesAgo={comment.minutesAgo}
-              seen={seen[i]}
-              handleSeen={handleSeen(i)}
-            />
-          ))}
-        </CommentsContainer>
+      <Bell blue={seen.includes(false)} />
+      <CommentsContainer>
+        {comments.sort((a, b) => a.minutesAgo - b.minutesAgo).map((comment, i) => (
+          <ArtworkComment
+            key={comment.id}
+            last={i === comments.length - 1 ? true : false}
+            image={portrait}
+            name={comment.name}
+            text={comment.text}
+            minutesAgo={comment.minutesAgo}
+            seen={seen[i]}
+            handleSeen={handleSeen(i)}
+          />
+        ))}
+      </CommentsContainer>
     </>
   );
 }
