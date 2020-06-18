@@ -1,7 +1,15 @@
 import React from 'react';
-import { Container, ImageContainer, Image, TextContainer, DashedLine } from './styles';
+import {
+	Container,
+	ImageContainer,
+	Image,
+	TextContainer,
+	DashedLine,
+	RedText
+} from './styles';
 
 const ArtworkComment = props => {
+	console.log(`ArtworkComment: ${props.seen}`);
 	return (
 		<Container>
 			<ImageContainer>
@@ -10,7 +18,7 @@ const ArtworkComment = props => {
 			<TextContainer>
 				<p>{props.name}</p>
 				<p>{props.text}</p>
-				<p>{props.minutesAgo} minutes ago</p>
+				<p>{props.minutesAgo} minutes ago {props.seen || '|'}</p> {props.seen || <RedText onClick={props.handleSeen}>Mark as seen</RedText>}
 			</TextContainer>
 			{props.last || <DashedLine />}
 		</Container>

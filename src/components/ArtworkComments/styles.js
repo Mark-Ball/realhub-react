@@ -31,15 +31,18 @@ export const TextContainer = styled.div`
 	height: auto;
 
 	p {
-			margin: 10px;
+		margin: 10px;
 	}
 
 	p:nth-child(1) {
-			color: ${COLOURS.BLUE};
+		color: ${COLOURS.BLUE};
 	}
 
 	p:nth-child(3) {
-			color: ${COLOURS.LIGHTGREY};
+		display: inline;
+		color: ${COLOURS.LIGHTGREY};
+		margin-left: 10px;
+		margin-right: 0;
 	}
 `;
 
@@ -47,4 +50,13 @@ export const DashedLine = styled.div`
 	width: 90%;
 	border-top: 1px dashed ${COLOURS.LINE};
 	margin: 5px auto;
+`;
+
+export const RedText = styled.span`
+	color: red;
+	cursor: pointer;
+
+	:hover {
+		text-decoration: underline;
+	}
 `;

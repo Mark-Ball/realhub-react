@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ArtworkComment from '../ArtworkComments/ArtworkComments';
 import { CommentsContainer } from './styles';
 import portrait from '../../svgs/portrait.svg';
@@ -8,23 +8,40 @@ const comments = [
     id: 1,
     name: 'Frank Greeff',
     text: 'Also, the address is 79/104 New Order Road not 78 | and if i make this comments very very very long it goes over the page on no!',
-    minutesAgo: 5
+    minutesAgo: 5,
+    seen: false
   },
   {
     id: 2,
     name: 'Frank Greeff',
     text: 'Looks pretty good but could you please move the image to the left.',
-    minutesAgo: 5
+    minutesAgo: 5,
+    seen: false
   },
   {
     id: 3,
     name: 'Darrell Gardiner',
     text: 'Please review artwork and let me know if you require any changes.',
-    minutesAgo: 9
+    minutesAgo: 9,
+    seen: false
   }
 ]
 
 const App = () => {
+  const [seen, setSeen] = useState(comments
+    .sort((a, b) => a.minutesAgo - b.minutesAgo)
+    .map(comment => comment.seen)
+  );
+
+  const handleSeen = index => {
+    return () => {
+      setSeen(prevState => {
+        prevState[index] = true;
+        return [...prevState];
+      });
+    }
+  }
+
   return (
     <>
       <h1 style={{textAlign: 'center'}}>Comments</h1>
@@ -37,6 +54,8 @@ const App = () => {
               name={comment.name}
               text={comment.text}
               minutesAgo={comment.minutesAgo}
+              seen={seen[i]}
+              handleSeen={handleSeen(i)}
             />
           ))}
         </CommentsContainer>
