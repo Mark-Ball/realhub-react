@@ -1,14 +1,13 @@
 import React from 'react';
-import { Box } from './styles';
+import { Box, Number } from './styles';
 
 const Bell = props => {
-    console.log(props.numUnseenComments);
     return (
         <Box
             blue={props.blue}
             onClick={props.toggleComments}
         >
-            {props.numUnseenComments > 0 && props.numUnseenComments}
+            {props.numUnseenComments > 0 && <Number>{props.numUnseenComments}</Number>}
         </Box>
     )
 }

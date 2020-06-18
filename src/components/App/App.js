@@ -3,6 +3,7 @@ import ArtworkComment from '../ArtworkComments/ArtworkComments';
 import Bell from '../Bell/Bell';
 import { CommentsContainer } from './styles';
 import portrait from '../../svgs/portrait.svg';
+import './App.css';
 
 const comments = [
   {
