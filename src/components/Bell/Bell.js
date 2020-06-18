@@ -1,15 +1,21 @@
 import React from 'react';
 import { Box, Number } from './styles';
+import whiteBell from '../../svgs/whiteBell.svg';
+import blackBell from '../../svgs/blackBell.svg';
 
 const Bell = props => {
-    return (
-        <Box
-            blue={props.blue}
-            onClick={props.toggleComments}
-        >
-            {props.numUnseenComments > 0 && <Number>{props.numUnseenComments}</Number>}
-        </Box>
-    )
+	return (
+		<Box
+			blue={props.numUnseenComments}
+			onClick={props.toggleComments}
+		>
+			{props.numUnseenComments > 0 && <Number>{props.numUnseenComments}</Number>}
+			<img 
+				alt='bell icon'
+				src={props.numUnseenComments ? whiteBell : blackBell}
+			/>
+		</Box>
+	)
 }
 
 export default Bell;

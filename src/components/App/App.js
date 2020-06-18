@@ -54,7 +54,6 @@ const App = () => {
     <>
       <h1 style={{textAlign: 'center'}}>Comments</h1>
       <Bell
-        blue={seen.includes(false)}
         numUnseenComments={seen.filter(val => val === false).length}
         toggleComments={toggleComments}
       />
