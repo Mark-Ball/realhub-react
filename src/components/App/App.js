@@ -42,7 +42,7 @@ const App = () => {
               image={comment.user.image.original_url}
               name={comment.user.first_name + ' ' + comment.user.last_name}
               body={comment.body}
-              minutesAgo={comment.minutesAgo}
+              dateCreated={comment.dates.created.date_time}
               acknowledged={acknowledged[i]}
               handleAcknowledged={handleAcknowledged(i)}
             />
