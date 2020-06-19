@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { COLOURS } from '../../constants';
 
 export const Box = styled.div`
-    position: relative;
+	position: relative;
 	height: 50px;
 	width: 50px;
 	border: 1px solid ${COLOURS.LINE};
@@ -13,7 +13,7 @@ export const Box = styled.div`
 `;
 
 export const Number = styled.div`
-    position: absolute;
-    right: 5px;
-    color: white;
+	position: absolute;
+	right: 5px;
+	color: white;
 `;
