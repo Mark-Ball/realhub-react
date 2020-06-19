@@ -3,8 +3,7 @@ import { Box, Number } from './styles';
 import whiteBell from '../../svgs/whiteBell.svg';
 import blackBell from '../../svgs/blackBell.svg';
 
-const Bell = props => {
-	return (
+const Bell = props => (
 		<Box
 			blue={props.numUnseenComments}
 			onClick={props.toggleComments}
@@ -15,7 +14,6 @@ const Bell = props => {
 				src={props.numUnseenComments ? whiteBell : blackBell}
 			/>
 		</Box>
-	)
-}
+)
 
 export default Bell;

@@ -8,25 +8,23 @@ import {
 	RedText
 } from './styles';
 
-const ArtworkComment = props => {
-	return (
-		<>
-			<Container>
-				<ImageContainer>
-					<Image src={props.image} />
-				</ImageContainer>
-				<TextContainer>
-					<p>{props.name}</p>
-					<p>{props.text}</p>
-					<div>
-						<p>{props.minutesAgo} minutes ago {props.seen || '|'}</p>
-						{props.seen || <RedText onClick={props.handleSeen}>Mark as seen</RedText>}
-					</div>
-				</TextContainer>
-			</Container>
-			{props.last || <DashedLine />}
-		</>
-	)
-}
+const ArtworkComment = props => (
+	<>
+		<Container>
+			<ImageContainer>
+				<Image src={props.image} />
+			</ImageContainer>
+			<TextContainer>
+				<p>{props.name}</p>
+				<p>{props.body}</p>
+				<div>
+					<p>{props.minutesAgo} minutes ago {props.acknowledged || '|'}</p>
+					{props.acknowledged || <RedText onClick={props.handleAcknowledged}>Mark as Seen</RedText>}
+				</div>
+			</TextContainer>
+		</Container>
+		{props.last || <DashedLine />}
+	</>
+)
 
 export default ArtworkComment;

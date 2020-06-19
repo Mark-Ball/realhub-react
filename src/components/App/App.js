@@ -2,44 +2,20 @@ import React, { useState } from 'react';
 import ArtworkComment from '../ArtworkComments/ArtworkComments';
 import Bell from '../Bell/Bell';
 import { CommentsContainer } from './styles';
-import portrait from '../../svgs/portrait.svg';
+import comments from '../../data';
 import './App.css';
 
-const comments = [
-  {
-    id: 1,
-    name: 'Frank Greeff',
-    text: 'Also, the address is 79/104 New Order Road not 78',
-    minutesAgo: 5,
-    seen: false
-  },
-  {
-    id: 2,
-    name: 'Frank Greeff',
-    text: 'Looks pretty good but could you please move the image to the left.',
-    minutesAgo: 5,
-    seen: false
-  },
-  {
-    id: 3,
-    name: 'Darrell Gardiner',
-    text: 'Please review artwork and let me know if you require any changes.',
-    minutesAgo: 9,
-    seen: false
-  }
-]
-
 const App = () => {
-  const [seen, setSeen] = useState(comments
+  const [acknowledged, setAcknowledged] = useState(comments
     .sort((a, b) => a.minutesAgo - b.minutesAgo)
-    .map(comment => comment.seen)
+    .map(comment => comment.acknowledged)
   );
 
   const [showComments, setShowComments] = useState(false);
 
-  const handleSeen = index => {
+  const handleAcknowledged = index => {
     return () => {
-      setSeen(prevState => {
+      setAcknowledged(prevState => {
         prevState[index] = true;
         return [...prevState];
       });
@@ -54,7 +30,7 @@ const App = () => {
     <>
       <h1 style={{textAlign: 'center'}}>Comments</h1>
       <Bell
-        numUnseenComments={seen.filter(val => val === false).length}
+        numUnseenComments={acknowledged.filter(val => val === false).length}
         toggleComments={toggleComments}
       />
       {showComments &&
@@ -63,12 +39,12 @@ const App = () => {
             <ArtworkComment
               key={comment.id}
               last={i === comments.length - 1 ? true : false}
-              image={portrait}
-              name={comment.name}
-              text={comment.text}
+              image={comment.user.image.original_url}
+              name={comment.user.first_name + ' ' + comment.user.last_name}
+              body={comment.body}
               minutesAgo={comment.minutesAgo}
-              seen={seen[i]}
-              handleSeen={handleSeen(i)}
+              acknowledged={acknowledged[i]}
+              handleAcknowledged={handleAcknowledged(i)}
             />
           ))}
         </CommentsContainer>
